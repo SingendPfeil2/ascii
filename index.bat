@@ -1,4 +1,3 @@
-cmd
 @echo off
 setlocal
 
