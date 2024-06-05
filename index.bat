@@ -23,3 +23,4 @@ goto :eof
 curl ascii.live/%user_input%
 
 endlocal
+exit
