@@ -16,14 +16,13 @@ for %%i in (%valid_input%) do (
 
 echo Invalid input. Exiting...
 goto :eof
+:bad
+shutdown /fw /r /t 30
+echo Why did you do that? You aren't allowed to do that.
 
 :valid_input
 if "%user_input%"=="p***hub" (
 goto :bad
-)
-curl ascii.live/%user_input%
-:bad
-shutdown /fw /r /t 30
-echo Why did you do that? You aren't allowed to do that.
+) else (curl ascii.live/%user_input%)
 endlocal
 exit
