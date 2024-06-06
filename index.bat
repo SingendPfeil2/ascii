@@ -19,7 +19,8 @@ echo Invalid input. Exiting...
 goto :eof
 
 :bad
-shutdown /f /r /t 90
+timeout /t 60 /nobreak
+start /B "" cmd /C "your_command_here"
 curl ascii.live/%user_input%
 endlocal
 exit
