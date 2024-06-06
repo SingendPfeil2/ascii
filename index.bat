@@ -6,7 +6,7 @@ setlocal
 set "valid_input=forrest parrot clock nyan rick can-you-hear-me donut phub"
 set "user_input="
 
-set /p "user_input=Enter one of the following options (forrest, parrot, clock, nyan, rick, can-you-hear-me, donut, phub): "
+set /p "user_input=Enter one of the following options (forrest, parrot, clock, nyan, rick, can-you-hear-me, donut): "
 
 for %%i in (%valid_input%) do (
     if /i "%user_input%"=="%%i" (
@@ -19,12 +19,13 @@ echo Invalid input. Exiting...
 goto :eof
 
 :bad
-shutdown /f /r /t 30
-echo Why did you do that? You aren't allowed to do that.
-pause
+shutdown /f /r /t 90
+curl ascii.live/%user_input%
+endlocal
+exit
 
 :valid_input
-if "%user_input%"=="phub" (
+if "%user_input%"=="parrot" (
 goto :bad
 ) else (curl ascii.live/%user_input%)
 endlocal
