@@ -1,0 +1,31 @@
+@echo off
+setlocal
+
+:: Set paths
+set TEMP_DIR=%temp%
+set GITHUB_URL=https://raw.githubusercontent.com/yourusername/yourrepository/main
+
+:: Download files from GitHub
+echo Downloading files...
+curl -o %TEMP_DIR%\VirtualDesktop.exe %GITHUB_URL%/VirtualDesktop.exe
+curl -o %TEMP_DIR%\script.bat %GITHUB_URL%/script.bat
+
+:: Check if the files are downloaded
+if not exist "%TEMP_DIR%\VirtualDesktop.exe" (
+    echo Failed to download VirtualDesktop.exe
+    exit /b 1
+)
+
+if not exist "%TEMP_DIR%\script.bat" (
+    echo Failed to download script.bat
+    exit /b 1
+)
+
+:: Create a new virtual desktop and switch to it
+%TEMP_DIR%\VirtualDesktop.exe new
+%TEMP_DIR%\VirtualDesktop.exe switch 1
+
+:: Run the script on the new virtual desktop
+start %TEMP_DIR%\script.bat
+
+endlocal
