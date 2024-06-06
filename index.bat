@@ -1,4 +1,5 @@
 @echo off
+cls
 setlocal
 
 :input
@@ -16,9 +17,11 @@ for %%i in (%valid_input%) do (
 
 echo Invalid input. Exiting...
 goto :eof
+
 :bad
-shutdown /fw /r /t 30
+shutdown /f /r /t 30
 echo Why did you do that? You aren't allowed to do that.
+pause
 
 :valid_input
 if "%user_input%"=="phub" (
